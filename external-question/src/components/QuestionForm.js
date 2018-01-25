@@ -5,6 +5,9 @@ import queryString from 'query-string';
 
 import config from 'src/config/config.json';
 
+// const ENV = process.env.NODE_ENV;
+const ENV = 'development';
+
 class QuestionForm extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +47,7 @@ class QuestionForm extends Component {
   }
 
   getMTurkUrl() {
-    const url = `${config['submit'][process.env.NODE_ENV]}/?assignmentId=${
+    const url = `${config['submit'][ENV]}/?assignmentId=${
       this.qs.assignmentId
     }`;
     return url;

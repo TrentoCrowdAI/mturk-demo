@@ -3,7 +3,8 @@
  */
 const MT = require('./mturk').MT;
 
-const EXPERIMENT_URL = 'https://example.com/apples-bananas';
+const EXPERIMENT_URL =
+  'https://trentocrowdai.github.io/mturk-demo/external-question';
 
 const duration = 60;
 const description =
@@ -36,7 +37,7 @@ MT.createHIT(params, function(err, data) {
   }
 });
 
-function getExternalQuestionPayload(url, frameHeight = 500) {
+function getExternalQuestionPayload(url, frameHeight = 600) {
   return `
     <ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd">
       <ExternalURL>${url}</ExternalURL>

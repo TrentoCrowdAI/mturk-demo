@@ -1,0 +1,8 @@
+{
+  "endpoint": "https://mturk-requester-sandbox.us-east-1.amazonaws.com"
+  "credentials": {
+    "accessKeyId": "KEY_ID",
+    "secretAccessKey": "SECRET",
+    "region": "us-east-1"
+  }
+}

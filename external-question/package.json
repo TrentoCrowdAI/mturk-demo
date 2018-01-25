@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://trentocrowdai.github.io/mturk-demo/external-question",
   "dependencies": {
+    "axios": "^0.17.1",
     "bootstrap": "^4.0.0",
     "query-string": "^5.0.1",
     "react": "^16.2.0",

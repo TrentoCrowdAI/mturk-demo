@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
 import queryString from 'query-string';
+import axios from 'axios';
 
 import config from 'src/config/config.json';
-
-// const ENV = process.env.NODE_ENV;
-const ENV = 'development';
 
 class QuestionForm extends Component {
   constructor(props) {
     super(props);
     this.qs = queryString.parse(props.location.search);
     this.submit = this.submit.bind(this);
+    this.getAnswer = this.getAnswer.bind(this);
+    this.postToMturk = this.postToMturk.bind(this);
+    this.postToApi = this.postToApi.bind(this);
   }
 
   render() {
@@ -47,7 +48,7 @@ class QuestionForm extends Component {
   }
 
   getMTurkUrl() {
-    const url = `${config['submit'][ENV]}/?assignmentId=${
+    const url = `${config.mturk[config.mode]}/?assignmentId=${
       this.qs.assignmentId
     }`;
     return url;
@@ -55,10 +56,41 @@ class QuestionForm extends Component {
 
   submit(event) {
     event.preventDefault();
-    const choice = document.querySelector('input[name="choice"]:checked').value;
+
+    if (config.server) {
+      this.postToApi();
+    } else {
+      this.postToMturk();
+    }
+  }
+
+  postToMturk() {
+    const choice = this.getAnswer();
     let form = document.getElementById('turkForm');
     form.action = `${this.getMTurkUrl()}&choice=${choice}`;
     form.submit();
+  }
+
+  getAnswer() {
+    return document.querySelector('input[name="choice"]:checked').value;
+  }
+
+  postToApi() {
+    let payload = {
+      choice: this.getAnswer(),
+      assignmentId: this.qs.assignmentId,
+      hitId: this.qs.hitId,
+      workerId: this.qs.workerId,
+      userAgent: navigator.userAgent
+    };
+
+    axios
+      .post(`${config.server}/v1/answers`, payload)
+      .then(response => this.postToMturk())
+      .catch(error => {
+        console.error(error);
+        this.postToMturk();
+      });
   }
 }
 

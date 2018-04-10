@@ -1,3 +1,5 @@
 config.json
+config.prod.json
+config.dev.json
 node_modules
 npm-debug.log

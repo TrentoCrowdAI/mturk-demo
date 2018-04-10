@@ -1,7 +1,7 @@
 const MT = require('./mturk').MT;
 
 const params = {
-  HITId: '3Z8UJEJOCZKPF35501PJWY0MRZE93P' /* required */,
+  HITId: '3I7KR83SNAKVB1DCL7HIDKHO3GN9KE',
   MaxResults: 5
 };
 

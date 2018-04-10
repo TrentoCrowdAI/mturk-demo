@@ -2,7 +2,7 @@ const MT = require('./mturk').MT;
 
 var params = {
   ExpireAt: 0 /* required. 0 means expire immediately */,
-  HITId: '3X2LT8FDHWPMSWOJ5TU71ZG85M3W86' /* required */
+  HITId: '3WKGUBL7SZZWRE0JJ0WKE7N3Z074LS' /* required */
 };
 
 MT.updateExpirationForHIT(params, function(err, data) {

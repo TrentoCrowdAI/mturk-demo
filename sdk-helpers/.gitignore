@@ -3,3 +3,6 @@ config.prod.json
 config.dev.json
 node_modules
 npm-debug.log
+workers-bonus.json
+workers-bonus.prod.json
+workers-bonus.dev.json

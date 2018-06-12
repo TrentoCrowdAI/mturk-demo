@@ -1,11 +1,11 @@
 const MT = require('./mturk').MT;
 
-const params = {
-  HITId: 'HIT ID',
-  MaxResults: 10
+let params = {
+  HITId: '3IH9TRB0FB6MG1KTHRHDLYKSD1I1IW',
+  NumberOfAdditionalAssignments: 1
 };
 
-MT.listAssignmentsForHIT(params, function(err, data) {
+MT.createAdditionalAssignmentsForHIT(params, (err, data) => {
   if (err) {
     console.error(err, err.stack); // an error occurred
   } else {

@@ -8,7 +8,6 @@
  *  {
  *    "workerTurkId": "A2S834OFASDFASDF",
  *    "assignmentTurkId": "3PMBY0YE28G680AJDK4EGASDFASWER",
- *     "hitId": "3WKGUBL7SZZWRE0ASDFAWERWEFW",
  *    "reward": 1.5
  *  }
  * ]
@@ -16,12 +15,14 @@
 const MT = require('./mturk').MT;
 const workers = require('./workers-bonus.json');
 
-const payWorkers = async () => {
+const run = async () => {
   for (w of workers) {
-    console.log(`Paying worker: ${w.workerTurkId}`);
-    const payload = {
+    let bonusReward = w.reward - 0.2;
+    const reward = bonusReward.toFixed(2);
+    console.log(`Paying worker: ${w.workerTurkId} $ ${reward}`);
+    let payload = {
       AssignmentId: w.assignmentTurkId,
-      BonusAmount: `${w.reward}`,
+      BonusAmount: reward,
       Reason: `Reward for "Classification of scientific papers based on title and abstract"`,
       WorkerId: w.workerTurkId
     };
@@ -41,4 +42,4 @@ const payWorkers = async () => {
   }
 };
 
-payWorkers();
+run();

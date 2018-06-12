@@ -1,8 +1,13 @@
+const moment = require('moment');
+
 const MT = require('./mturk').MT;
 
 var params = {
   ExpireAt: 0 /* required. 0 means expire immediately */,
-  HITId: '3WKGUBL7SZZWRE0JJ0WKE7N3Z074LS' /* required */
+  // ExpireAt: moment()
+  //   .add(240, 'm')
+  //   .unix(),
+  HITId: 'HIT ID' /* required */
 };
 
 MT.updateExpirationForHIT(params, function(err, data) {

@@ -1,11 +1,8 @@
 const MT = require('./mturk').MT;
 
-const params = {
-  HITId: 'HIT ID',
-  MaxResults: 10
-};
+var params = {};
 
-MT.listAssignmentsForHIT(params, function(err, data) {
+MT.getAccountBalance(params, function(err, data) {
   if (err) {
     console.error(err, err.stack); // an error occurred
   } else {

@@ -1,10 +1,10 @@
 const MT = require('./mturk').MT;
 
 const payload = {
-  AssignmentId: '3DH6GAKTYZW8NHI0JMHAN0U8R6NYZA',
-  BonusAmount: `1.5`,
+  AssignmentId: 'assignment id',
+  BonusAmount: `amount`,
   Reason: 'Reward based on the number of answers given',
-  WorkerId: 'A2M77QIRWUYHNW'
+  WorkerId: 'worker id'
 };
 MT.sendBonus(payload, (err, data) => {
   if (err) {

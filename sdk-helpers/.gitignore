@@ -5,4 +5,6 @@ node_modules
 npm-debug.log
 workers-bonus.json
 workers-bonus.prod.json
+workers-bonus.prod.1.json
 workers-bonus.dev.json
+worker-bonus.prod.58.json

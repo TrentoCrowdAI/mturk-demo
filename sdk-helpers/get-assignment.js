@@ -1,11 +1,10 @@
 const MT = require('./mturk').MT;
 
 const params = {
-  HITId: 'HIT ID',
-  MaxResults: 10
+  AssignmentId: 'ASSIGNMENT ID'
 };
 
-MT.listAssignmentsForHIT(params, function(err, data) {
+MT.getAssignment(params, function(err, data) {
   if (err) {
     console.error(err, err.stack); // an error occurred
   } else {

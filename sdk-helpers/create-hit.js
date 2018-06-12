@@ -11,9 +11,9 @@ const description =
   'Choose between Apple or Banana based on your personal preferences for a quick snack.';
 const lifetime = 5 * 60 * 60;
 const reward = 0.01;
-const title = 'Quick survey about Apples vs Bananas';
+const title = '(TEST)Quick survey about Apples vs Bananas';
 const keywords = ['image', 'comparison', 'choose'];
-const experimentName = 'ApplesVsBananas';
+const experimentName = '(TEST)ApplesVsBananas';
 const question = getExternalQuestionPayload(EXPERIMENT_URL);
 
 let params = {
@@ -24,7 +24,7 @@ let params = {
   Title: `${title}` /* required */,
   AutoApprovalDelayInSeconds: 3 * 24 * 60 * 60,
   Keywords: keywords.join(','),
-  MaxAssignments: 5,
+  MaxAssignments: 1,
   Question: `${getExternalQuestionPayload(EXPERIMENT_URL)}`,
   RequesterAnnotation: experimentName
 };
